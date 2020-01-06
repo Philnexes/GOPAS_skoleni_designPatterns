@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sandbox
 {
-    class B : IB
+    class A
     {
+        protected virtual IB CreateB() => new B();
+
         public void UseB()
         {
-            Console.WriteLine("Used B");
+            CreateB().UseB();
         }
     }
 }
