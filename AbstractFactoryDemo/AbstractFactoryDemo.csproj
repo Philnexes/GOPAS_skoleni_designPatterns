@@ -43,8 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlueCircle.cs" />
+    <Compile Include="BlueFactory.cs" />
+    <Compile Include="BlueSquare.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="ICircle.cs" />
+    <Compile Include="IShapeFactory.cs" />
+    <Compile Include="ISquare.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedCircle.cs" />
+    <Compile Include="RedFactory.cs" />
+    <Compile Include="RedSquare.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
