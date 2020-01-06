@@ -10,6 +10,8 @@ namespace Skoleni_01
     {
         static void Main(string[] args)
         {
+            var client = new Client();
+            client.UseSingleton();
         }
     }
 }
