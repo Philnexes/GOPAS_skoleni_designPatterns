@@ -15,6 +15,8 @@ namespace Sandbox
             this.b = b;
         }
 
+        internal IB B => b;
+
         public void UseB()
         {
             b.UseB();
