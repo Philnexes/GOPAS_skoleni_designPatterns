@@ -10,6 +10,9 @@ namespace Sandbox
     {
         static void Main(string[] args)
         {
+            var b = new BetterB();
+            var a = new A(b);
+            a.UseB();
         }
     }
 }

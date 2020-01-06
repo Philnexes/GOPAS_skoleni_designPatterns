@@ -11,7 +11,7 @@ namespace FactoryMethodDemo
         protected virtual B CreateB() => new B();
         public void UseB()
         {
-            var b = new B();
+            var b = CreateB();
             b.Use();
         }
     }

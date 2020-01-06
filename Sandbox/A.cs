@@ -8,11 +8,16 @@ namespace Sandbox
 {
     class A
     {
-        protected virtual IB CreateB() => new B();
+        IB b;
+
+        public A(IB b)
+        {
+            this.b = b;
+        }
 
         public void UseB()
         {
-            CreateB().UseB();
+            b.UseB();
         }
     }
 }

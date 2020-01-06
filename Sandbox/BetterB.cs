@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sandbox
 {
-    interface IB
+    class BetterB : IB
     {
-        void UseB();
+        public void UseB()
+        {
+            Console.WriteLine("BetterB used");
+        }
     }
 }

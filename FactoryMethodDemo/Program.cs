@@ -10,7 +10,7 @@ namespace FactoryMethodDemo
     {
         static void Main(string[] args)
         {
-            A a = new A();
+            A a = new BetterA();
             a.UseB();
         }
     }

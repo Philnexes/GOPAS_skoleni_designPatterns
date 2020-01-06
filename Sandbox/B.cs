@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sandbox
 {
@@ -10,7 +6,7 @@ namespace Sandbox
     {
         public void UseB()
         {
-            Console.WriteLine("Used B");
+            Console.WriteLine("B used");
         }
     }
 }
