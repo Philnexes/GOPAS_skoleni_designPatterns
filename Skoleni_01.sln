@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skoleni_01", "Skoleni_01\Skoleni_01.csproj", "{41D35C85-8119-44C7-90F4-6BC0EF84F49B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonDemo", "Skoleni_01\SingletonDemo.csproj", "{41D35C85-8119-44C7-90F4-6BC0EF84F49B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethodDemo", "FactoryMethodDemo\FactoryMethodDemo.csproj", "{0E7D95C7-5C2F-4798-9624-2DAA27727744}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{41D35C85-8119-44C7-90F4-6BC0EF84F49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41D35C85-8119-44C7-90F4-6BC0EF84F49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41D35C85-8119-44C7-90F4-6BC0EF84F49B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E7D95C7-5C2F-4798-9624-2DAA27727744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7D95C7-5C2F-4798-9624-2DAA27727744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7D95C7-5C2F-4798-9624-2DAA27727744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7D95C7-5C2F-4798-9624-2DAA27727744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
