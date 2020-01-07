@@ -10,5 +10,6 @@
         <Label Name="resultLabel">0</Label>
         <TextBox Name="inputTextBox" />
         <Button Name="plusButton" Click="plusButton_Click">+</Button>
+        <Button Name="minusButton" Click="minusButton_Click">-</Button>
     </StackPanel>
 </Window>

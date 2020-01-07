@@ -17,5 +17,12 @@
             model.Plus(dx);
             MainView.UpdateView();
         }
+
+        public void MinusAction(string x)
+        {
+            var dx = double.Parse(x);
+            model.Minus(dx);
+            MainView.UpdateView();
+        }
     }
 }
