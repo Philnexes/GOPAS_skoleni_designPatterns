@@ -34,7 +34,7 @@ namespace Calc.Controllers
             }
             catch (Exception ex)
             {
-                Error = $"Unexpeced error: {ex.Message}";
+                Error = $"Unexpected error: {ex.Message}";
             }
             if (Error == "")
             {
