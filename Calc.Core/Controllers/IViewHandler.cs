@@ -2,10 +2,10 @@
 {
     public interface IViewHandler
     {
-        void Hide(IView View);
-        void Show(IView View);
-        bool IsReady(IView View);
-        void ShowModal(IView View);
+        void Hide(IView view);
+        void Show(IView view);
+        bool IsReady(IView view);
+        void ShowModal(IView view);
         void ExitApp();
     }
 }

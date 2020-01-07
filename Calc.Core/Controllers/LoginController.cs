@@ -1,5 +1,6 @@
 ﻿using Calc.Models;
 using Ninject;
+// using System.Windows;
 
 namespace Calc.Controllers
 {
@@ -8,7 +9,7 @@ namespace Calc.Controllers
         IKernel container;
         IModelFacade model;
         IViewHandler viewHandler;
-        
+
         public LoginController(IKernel container)
         {
             this.container = container;
@@ -24,19 +25,22 @@ namespace Calc.Controllers
 
         public void LogInAction(string user, string pwd)
         {
-            if(model.Login(user, pwd))
+            if (model.Login(user, pwd))
             {
+                //((Window)LoginView).Hide();
                 viewHandler.Hide(LoginView);
                 if (MainView == null) MainView = container.Get<IView>("Main");
+                //((Window)MainView).Show();
                 viewHandler.Show(MainView);
                 Error = "";
             }
             else
             {
-                if (!viewHandler.IsReady(ErrorView))
+                if (!viewHandler.IsReady(ErrorView)) //ErrorView == null || !((Window)ErrorView).IsVisible)
                     ErrorView = container.Get<IView>("LoginError");
                 Error = "Invalid login";
                 ErrorView.UpdateView();
+                //((Window)ErrorView).ShowDialog();
                 viewHandler.ShowModal(ErrorView);
             }
         }
