@@ -30,6 +30,7 @@ namespace Calc
             //controllers
             container.Bind<ICalcController>().To<CalcController>().InSingletonScope();
             container.Bind<ILoginController>().To<LoginController>().InSingletonScope();
+            container.Bind<IViewHandler>().To<WpfViewHandler>().InSingletonScope();
 
             //views
             container.Bind<IView>().To<ErrorWindow<ILoginController>>().Named("LoginError");

@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\WpfViewHandler.cs" />
     <Page Include="Views\ErrorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,20 +79,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\CalcController.cs" />
-    <Compile Include="Controllers\IController.cs" />
-    <Compile Include="Controllers\ILoginController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Models\Auth.cs" />
-    <Compile Include="Models\Calculator.cs" />
-    <Compile Include="Controllers\ICalcController.cs" />
-    <Compile Include="Models\IAuth.cs" />
-    <Compile Include="Models\ICalculator.cs" />
-    <Compile Include="Controllers\IView.cs" />
-    <Compile Include="Models\ILogger.cs" />
-    <Compile Include="Models\IModelFacade.cs" />
-    <Compile Include="Models\Logger.cs" />
-    <Compile Include="Models\ModelFacade.cs" />
     <Compile Include="Views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
@@ -132,6 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Calc.Core\Calc.Core.csproj">
+      <Project>{2b5d63d4-85c7-42d2-9842-e904524848d2}</Project>
+      <Name>Calc.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

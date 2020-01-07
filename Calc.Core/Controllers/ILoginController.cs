@@ -1,6 +1,4 @@
-﻿using Calc.Views;
-
-namespace Calc.Controllers
+﻿namespace Calc.Controllers
 {
     public interface ILoginController: IController
     {

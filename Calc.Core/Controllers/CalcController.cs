@@ -1,19 +1,20 @@
 ﻿using Calc.Models;
 using Ninject;
 using System;
-using System.Windows;
 
 namespace Calc.Controllers
 {
-    class CalcController : ICalcController
+    public class CalcController : ICalcController
     {
         IKernel container;
         IModelFacade model;
+        IViewHandler viewHandler;
 
         public CalcController(IKernel container)
         {
             this.container = container;
             model = container.Get<IModelFacade>();
+            viewHandler = container.Get<IViewHandler>();
         }
 
         public IView MainView { get; set; }
@@ -42,16 +43,17 @@ namespace Calc.Controllers
             {
                 operation(dx);
                 MainView.UpdateView();
-                if (LogView != null && ((Window)LogView).IsVisible)
+                if (viewHandler.IsReady(LogView))
                     LogView.UpdateView();
 
             }
             else
             {
-                if (ErrorView == null || !((Window)ErrorView).IsVisible)
+                if (!viewHandler.IsReady(ErrorView))
                     ErrorView = this.container.Get<IView>("ErrCalc");
+
                 ErrorView.UpdateView();
-                ((Window)ErrorView).ShowDialog();
+                viewHandler.ShowModal(ErrorView);
             }
         }
 
@@ -60,15 +62,16 @@ namespace Calc.Controllers
 
         public void ShowLogAction()
         {
-            if (LogView == null || !((Window)LogView).IsVisible)
+            if (!viewHandler.IsReady(LogView))
                 LogView = this.container.Get<IView>("CalcError");
-            ((Window)LogView).Show();
+            viewHandler.Show(LogView);
             LogView.UpdateView();
         }
 
         public void ExitAppAction()
         {
-            App.Current.Shutdown();
+            //App.Current.Shutdown();
+            viewHandler.ExitApp();
         }
     }
 }
