@@ -1,5 +1,5 @@
 ﻿using Calc.Models;
-using Calc.Views;
+using Ninject;
 using System;
 using System.Windows;
 
@@ -7,11 +7,13 @@ namespace Calc.Controllers
 {
     class CalcController : ICalcController
     {
+        IKernel container;
         IModelFacade model;
 
-        public CalcController(IModelFacade model)
+        public CalcController(IKernel container)
         {
-            this.model = model;
+            this.container = container;
+            model = container.Get<IModelFacade>();
         }
 
         public IView MainView { get; set; }
@@ -47,7 +49,7 @@ namespace Calc.Controllers
             else
             {
                 if (ErrorView == null || !((Window)ErrorView).IsVisible)
-                    ErrorView = new ErrorWindow<ICalcController>(model, this);
+                    ErrorView = this.container.Get<IView>("ErrCalc");
                 ErrorView.UpdateView();
                 ((Window)ErrorView).ShowDialog();
             }
@@ -59,7 +61,7 @@ namespace Calc.Controllers
         public void ShowLogAction()
         {
             if (LogView == null || !((Window)LogView).IsVisible)
-                LogView = new LogWindow(model, this);
+                LogView = this.container.Get<IView>("CalcError");
             ((Window)LogView).Show();
             LogView.UpdateView();
         }

@@ -1,5 +1,4 @@
 ﻿using Calc.Models;
-using Calc.Views;
 using Ninject;
 using System.Windows;
 
