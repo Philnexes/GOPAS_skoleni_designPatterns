@@ -20,9 +20,9 @@ namespace Calc.Views
 
         public void UpdateView()
         {
-            itemsListBox.Items.Clear();
-            foreach (var item in model.LogItems)
-                itemsListBox.Items.Add(item);
+            listBox.Items.Clear();
+            foreach (var item in model.LogItems) 
+                listBox.Items.Add(item);
         }
     }
 }

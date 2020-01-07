@@ -35,7 +35,8 @@ namespace Calc.Views
         private void minusButton_Click(object sender, RoutedEventArgs e)
         {
             controller.MinusAction(inputTextBox.Text);
-        }        
+        }
+
         private void showLogButton_Click(object sender, RoutedEventArgs e)
         {
             controller.ShowWindowAction();
