@@ -1,0 +1,14 @@
+﻿<Window x:Class="Calc.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calc.Views"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="89.749" Width="427.197">
+    <StackPanel>
+        <TextBox Name="userTextBox" />
+        <TextBox Name="pwdTextBox" />
+        <Button Name="loginButton" Click="loginButton_Click">Log in</Button>
+    </StackPanel>
+</Window>

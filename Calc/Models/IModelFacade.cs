@@ -8,5 +8,6 @@ namespace Calc.Models
         IEnumerable<string> LogItems { get; }
         void Minus(double x);
         void Plus(double x);
+        bool Login(string user, string pwd);
     }
 }

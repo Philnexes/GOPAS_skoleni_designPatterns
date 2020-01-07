@@ -62,6 +62,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -75,8 +79,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\CalcController.cs" />
+    <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Controllers\ILoginController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Models\Auth.cs" />
     <Compile Include="Models\Calculator.cs" />
     <Compile Include="Controllers\ICalcController.cs" />
+    <Compile Include="Models\IAuth.cs" />
     <Compile Include="Models\ICalculator.cs" />
     <Compile Include="Controllers\IView.cs" />
     <Compile Include="Models\ILogger.cs" />
@@ -85,6 +94,9 @@
     <Compile Include="Models\ModelFacade.cs" />
     <Compile Include="Views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LogWindow.xaml.cs">
       <DependentUpon>LogWindow.xaml</DependentUpon>

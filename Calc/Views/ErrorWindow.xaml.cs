@@ -19,14 +19,17 @@ namespace Calc.Views
     /// <summary>
     /// Interaction logic for ErrorWindow.xaml
     /// </summary>
-    public partial class ErrorWindow : Window, IView
+    public partial class ErrorWindow<T> : Window, IView
+        where T: IController
     {
         IModelFacade model;
-        ICalcController controller;
-        
-        public ErrorWindow(IModelFacade model, ICalcController controller)
+        T controller;
+        Label errorLabel = new Label();
+        public ErrorWindow(IModelFacade model, T controller)
         {
-            InitializeComponent();
+            Content = errorLabel;
+            Width = 200;
+            Height = 100;
             this.model = model;
             this.controller = controller;
             controller.ErrorView = this;

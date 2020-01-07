@@ -39,7 +39,7 @@ namespace Calc.Views
 
         private void showLogButton_Click(object sender, RoutedEventArgs e)
         {
-            controller.ShowWindowAction();
+            controller.ShowLogAction();
         }
     }
 }

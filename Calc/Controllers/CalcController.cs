@@ -34,7 +34,7 @@ namespace Calc.Controllers
             }
             catch (Exception ex)
             {
-                Error = $"Unexpected error: {ex.Message}";
+                Error = $"Unexpeced error: {ex.Message}";
             }
             if (Error == "")
             {
@@ -47,7 +47,7 @@ namespace Calc.Controllers
             else
             {
                 if (ErrorView == null || !((Window)ErrorView).IsVisible)
-                    ErrorView = new ErrorWindow(model, this);
+                    ErrorView = new ErrorWindow<ICalcController>(model, this);
                 ErrorView.UpdateView();
                 ((Window)ErrorView).ShowDialog();
             }
@@ -56,7 +56,7 @@ namespace Calc.Controllers
         public void MinusAction(string x) => calculate(model.Minus, x);
         public void PlusAction(string x) => calculate(model.Plus, x);
 
-        public void ShowWindowAction()
+        public void ShowLogAction()
         {
             if (LogView == null || !((Window)LogView).IsVisible)
                 LogView = new LogWindow(model, this);
