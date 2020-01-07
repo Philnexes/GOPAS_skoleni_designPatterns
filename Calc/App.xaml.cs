@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Ninject;
 using System.Windows;
 
 namespace Calc
@@ -15,11 +10,17 @@ namespace Calc
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            var model = new Calculator();
+            /*var model = new Calculator();
             var calcController = new CalcController(model);
             var mainView = new MainWindow(model, calcController);
             MainWindow = mainView;
-            mainView.Show();
+            mainView.Show();*/
+
+            var container = new StandardKernel();
+            container.Bind <ICalculator>().To<Calculator>().InSingletonScope();
+            container.Bind<ICalcController>().To<CalcController>();
+            MainWindow = container.Get<MainWindow>();
+            MainWindow.Show();
         }
     }
 }

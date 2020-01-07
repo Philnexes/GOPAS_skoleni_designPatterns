@@ -1,4 +1,6 @@
-﻿namespace Calc
+﻿using System;
+
+namespace Calc
 {
     class CalcController : ICalcController
     {
@@ -11,18 +13,15 @@
 
         public MainWindow MainView { get; set; }
 
-        public void PlusAction(string x)
+        private void Calculate(Action<double> operation, string x)
         {
             var dx = double.Parse(x);
-            model.Plus(dx);
+            operation(dx);
             MainView.UpdateView();
         }
 
-        public void MinusAction(string x)
-        {
-            var dx = double.Parse(x);
-            model.Minus(dx);
-            MainView.UpdateView();
-        }
+        public void PlusAction(string x) => Calculate(model.Plus, x);
+
+        public void MinusAction(string x) => Calculate(model.Minus, x);
     }
 }
