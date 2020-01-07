@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calc.Views"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="89.749" Width="427.197">
+        Title="LoginWindow" Height="104.812" Width="427.197">
     <StackPanel>
         <TextBox Name="userTextBox" />
         <TextBox Name="pwdTextBox" />

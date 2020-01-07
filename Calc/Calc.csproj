@@ -122,7 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Calc.Core\Calc.Core.csproj">
-      <Project>{2b5d63d4-85c7-42d2-9842-e904524848d2}</Project>
+      <Project>{11127EBF-D75A-476D-B432-0FCBF9FA6E11}</Project>
       <Name>Calc.Core</Name>
     </ProjectReference>
   </ItemGroup>
