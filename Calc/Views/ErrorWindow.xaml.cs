@@ -30,6 +30,8 @@ namespace Calc.Views
             Content = errorLabel;
             Width = 200;
             Height = 100;
+            Foreground = Brushes.Red;
+            Background = Brushes.Red;
             this.model = model;
             this.controller = controller;
             controller.ErrorView = this;

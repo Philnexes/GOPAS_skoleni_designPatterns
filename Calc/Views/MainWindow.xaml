@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="178" Width="267">
+        Title="MainWindow" Height="178" Width="267" Closed="Window_Closed">
     <StackPanel>
         <Label Name="resultLabel">0</Label>
         <TextBox Name="inputTextBox" />

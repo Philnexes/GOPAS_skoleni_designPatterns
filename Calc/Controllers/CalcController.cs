@@ -63,5 +63,10 @@ namespace Calc.Controllers
             ((Window)LogView).Show();
             LogView.UpdateView();
         }
+
+        public void ExitAppAction()
+        {
+            App.Current.Shutdown();
+        }
     }
 }

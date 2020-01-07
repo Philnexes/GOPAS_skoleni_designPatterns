@@ -10,5 +10,6 @@ namespace Calc.Controllers
         void PlusAction(string x);
         void MinusAction(string x);
         void ShowLogAction();
+        void ExitAppAction();
     }
 }
