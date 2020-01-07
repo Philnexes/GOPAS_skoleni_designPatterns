@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D28D491-614C-4D61-A530-74AAB9CC94E0}</ProjectGuid>
+    <ProjectGuid>{1781A078-F55F-44DE-96A6-D2A2154ABBFB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Calc</RootNamespace>
     <AssemblyName>Calc</AssemblyName>
@@ -58,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -66,12 +66,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CalcController.cs" />
-    <Compile Include="Calculator.cs" />
-    <Compile Include="ICalcController.cs" />
-    <Compile Include="ICalculator.cs" />
-    <Compile Include="IView.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Controllers\CalcController.cs" />
+    <Compile Include="Models\Calculator.cs" />
+    <Compile Include="Controllers\ICalcController.cs" />
+    <Compile Include="Models\ICalculator.cs" />
+    <Compile Include="Controllers\IView.cs" />
+    <Compile Include="Models\ILogger.cs" />
+    <Compile Include="Models\IModelFacade.cs" />
+    <Compile Include="Models\Logger.cs" />
+    <Compile Include="Models\ModelFacade.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

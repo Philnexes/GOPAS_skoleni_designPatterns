@@ -1,17 +1,19 @@
-﻿using System.Windows;
+﻿using Calc.Controllers;
+using Calc.Models;
+using System.Windows;
 
-namespace Calc
+namespace Calc.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IView
     {
-        ICalculator calc;
+        IModelFacade model;
         ICalcController controller;
-        public MainWindow(ICalculator calc, ICalcController controller)
+        public MainWindow(IModelFacade model, ICalcController controller)
         {
-            this.calc = calc;
+            this.model = model;
             this.controller = controller;
             controller.MainView = this;
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace Calc
 
         public void UpdateView()
         {
-            resultLabel.Content = calc.Result;
+            resultLabel.Content = model.Result;
         }
 
         private void plusButton_Click(object sender, RoutedEventArgs e)

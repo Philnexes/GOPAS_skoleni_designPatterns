@@ -1,10 +1,10 @@
-﻿namespace Calc
+﻿namespace Calc.Controllers
 {
     public interface ICalcController
     {
         void PlusAction(string x);
         void MinusAction(string x);
 
-        MainWindow MainView { get; set; }
+        IView MainView { get; set; }
     }
 }

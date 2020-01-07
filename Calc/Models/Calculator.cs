@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Calc.Models
+{
+    public class Calculator : ICalculator
+    {
+        public double Result { get; private set; }
+
+        public void Minus(double x) => Result -= x;
+
+        public void Plus(double x) => Result += x;
+    }
+}
