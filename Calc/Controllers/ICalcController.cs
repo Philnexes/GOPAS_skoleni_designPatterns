@@ -2,9 +2,11 @@
 {
     public interface ICalcController
     {
+        IView MainView { get; set; }
+        IView LogView { get; set; }
+
         void PlusAction(string x);
         void MinusAction(string x);
-
-        IView MainView { get; set; }
+        void ShowWindowAction();
     }
 }
