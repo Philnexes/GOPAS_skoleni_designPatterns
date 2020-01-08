@@ -1,6 +1,6 @@
-﻿using Calc.Controllers;
+﻿using Autofac;
+using Calc.Controllers;
 using Calc.Models;
-using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +11,8 @@ namespace Calc.WinForms
 {
     static class Program
     {
+        private static Autofac.IContainer autofacContainer;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -20,27 +22,31 @@ namespace Calc.WinForms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            var container = new StandardKernel();
-            
+            var containerBuilder = new ContainerBuilder();
+
             //models
-            container.Bind<ICalculator>().To<Calculator>().InSingletonScope();
-            container.Bind<ILogger>().To<Logger>().InSingletonScope();
-            container.Bind<IAuth>().To<Auth>().InSingletonScope();
-            container.Bind<IModelFacade>().To<ModelFacade>().InSingletonScope();
+            containerBuilder.RegisterType<Calculator>().As<ICalculator>().SingleInstance();
+            containerBuilder.RegisterType<Logger>().As<ILogger>().SingleInstance();
+            containerBuilder.RegisterType<Auth>().As<IAuth>().SingleInstance();
+            containerBuilder.RegisterType<ModelFacade>().As<IModelFacade>().SingleInstance();
 
             //controllers
-            container.Bind<ICalcController>().To<CalcController>().InSingletonScope();
-            container.Bind<ILoginController>().To<LoginController>().InSingletonScope();
-            container.Bind<IViewHandler>().To<WinFormsViewHandler>().InSingletonScope();
+            containerBuilder.RegisterType<CalcController>().As<ICalcController>().SingleInstance();
+            containerBuilder.RegisterType<LoginController>().As<ILoginController>().SingleInstance();
+            containerBuilder.RegisterType<WinFormsViewHandler>().As<IViewHandler>().SingleInstance();
 
             //views
-            container.Bind<IView>().To<ErrorForm<ILoginController>>().Named("LoginError");
-            //container.Bind<IView>().To<ErrorWindow<ICalcController>>().Named("CalcError");
-            container.Bind<IView>().To<LoginForm>().Named("Login");
-            //container.Bind<IView>().To<LogWindow>().Named("Log");
-            container.Bind<IView>().To<MainForm>().Named("Main");
+            containerBuilder.RegisterType<ErrorForm<ILoginController>>().As<IView>().Named<IView>("LoginError");
+            containerBuilder.RegisterType<LoginForm>().As<IView>().Named<IView>("Login");
+            containerBuilder.RegisterType<MainForm>().As<IView>().Named<IView>("Main");
 
-            Application.Run((Form)container.Get<IView>("Login"));
+            //infrastructure
+            containerBuilder.RegisterType<AutofacContainer>().As<Controllers.IContainer>().SingleInstance();
+            containerBuilder.Register(context => autofacContainer).As<Autofac.IContainer>();
+
+            autofacContainer = containerBuilder.Build();
+
+            Application.Run((Form)autofacContainer.ResolveNamed<IView>("Login"));
         }
     }
 }
