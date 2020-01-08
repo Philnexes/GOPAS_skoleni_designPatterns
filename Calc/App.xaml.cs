@@ -39,6 +39,9 @@ namespace Calc
             container.Bind<IView>().To<LogWindow>().Named("Log");
             container.Bind<IView>().To<MainWindow>().Named("Main");
 
+            //infrastucture
+            container.Bind<IContainer>().To<NinjectContainer>().InSingletonScope();
+
             MainWindow = (Window)container.Get<IView>("Login");
             MainWindow.Show();
         }
