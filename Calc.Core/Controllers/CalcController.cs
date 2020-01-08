@@ -1,6 +1,6 @@
 ﻿using Calc.Models;
 // using Calc.Views;
-using Ninject;
+//using Ninject;
 using System;
 //using System.Windows;
 
@@ -8,15 +8,15 @@ namespace Calc.Controllers
 {
     public class CalcController : ICalcController
     {
-        IKernel container;
+        IContainer container;
         IModelFacade model;
         IViewHandler viewHandler;
 
-        public CalcController(IKernel container) //IModelFacade model)
+        public CalcController(IContainer container) //IModelFacade model)
         {
             this.container = container;
-            model = container.Get<IModelFacade>();
-            viewHandler = container.Get<IViewHandler>();
+            model = container.GetModelFacade();
+            viewHandler = container.GetViewHandler();
         }
 
         public IView MainView { get; set; }
@@ -52,7 +52,7 @@ namespace Calc.Controllers
             else
             {
                 if (!viewHandler.IsReady(ErrorView)) //ErrorView == null || !((Window)ErrorView).IsVisible)
-                    ErrorView = container.Get<IView>("CalcError"); //new ErrorWindow<ICalcController>(model, this);
+                    ErrorView = container.GetCalcErrorView(); //new ErrorWindow<ICalcController>(model, this);
                 ErrorView.UpdateView();
                 //((Window)ErrorView).ShowDialog();
                 viewHandler.ShowModal(ErrorView);
@@ -65,7 +65,7 @@ namespace Calc.Controllers
         public void ShowLogAction()
         {
             if (!viewHandler.IsReady(LogView)) //LogView == null || !((Window)LogView).IsVisible)
-                LogView = container.Get<IView>("Log"); //new LogWindow(model, this);
+                LogView = container.GetLogView(); //new LogWindow(model, this);
             //((Window)LogView).Show();
             viewHandler.Show(LogView);
             LogView.UpdateView();
